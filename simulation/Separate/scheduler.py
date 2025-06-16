@@ -243,20 +243,18 @@ class scheduler:
             self.num_day = self.num_day+1
             self.dump_data(self.num_day)
         if round(clock.get_cur_time(),0) % self.log_rate==0:
-            print("***STime %.2fs, Loop %.2fs, GPUs(T/TS/I/IS/S/SS) %d/%d/%d/%d/%d/%d, Finished %d/%d, Train %d, Infer %d***"%(clock.get_cur_time()-\
-                                                                                                                       self.task_list[0]['start_time'],\
-                                                                                                                       end_t-start_t,\
-                                                                                                                       used_gpu_num_train,\
-                                                                                                                       self.no_gpu_train,\
-                                                                                                                       used_gpu_num_infer,\
-                                                                                                                       self.no_gpu_infer,\
-                                                                                                                         self.no_gpu_train\
-                                                                                                                         +self.no_gpu_infer,\
-                                                                                                                               used_gpu_num,\
-                                                                                                                       finished_jobs,\
-                                                                                                                       self.no_jobs,\
-                                                                                                                       sum_train,\
-                                                                                                                       sum_infer))
+            print("***  STime %.2fday, Loop %.2fs, GPUs(T/TS/I/IS/S/SS) %d/%d/%d/%d/%d/%d, Finished %d/%d, Train %d, Infer %d  ***"%((clock.get_cur_time()-self.task_list[0]['start_time'])/3600/24,\
+                                                                                                                        end_t-start_t,\
+                                                                                                                        used_gpu_num_train,\
+                                                                                                                        self.no_gpu_train,\
+                                                                                                                        used_gpu_num_infer,\
+                                                                                                                        self.no_gpu_infer,\
+                                                                                                                        self.no_gpu_train+self.no_gpu_infer,\
+                                                                                                                        used_gpu_num,\
+                                                                                                                        finished_jobs,\
+                                                                                                                        self.no_jobs,\
+                                                                                                                        sum_train,\
+                                                                                                                        sum_infer))
     def dispatch_job_to_gpu(self, schedule_job_ind):
         success_job_ind = []
         for job_ind in schedule_job_ind:
@@ -407,20 +405,18 @@ class scheduler:
                 self.num_day = self.num_day+1
                 self.dump_data(self.num_day)
             if round(clock.get_cur_time(),0) % self.log_rate==0:
-                print("***Time %.2fs, Loop %.2fs, GPUs(T/TS/I/IS/S/SS) %d/%d/%d/%d/%d/%d, Finished %d/%d, Train %d, Infer %d***"%(clock.get_cur_time()-\
-                                                                                                                           self.task_list[0]['start_time'],\
-                                                                                                                           end_t-start_t,\
-                                                                                                                           used_gpu_num_train,\
-                                                                                                                           self.no_gpu_train,\
-                                                                                                                           used_gpu_num_infer,\
-                                                                                                                           self.no_gpu_infer,\
-                                                                                                                             self.no_gpu_train\
-                                                                                                                             +self.no_gpu_infer,\
-                                                                                                                                  used_gpu_num,\
-                                                                                                                           finished_jobs,\
-                                                                                                                           self.no_jobs,\
-                                                                                                                           sum_train,\
-                                                                                                                           sum_infer))
+                print("***  STime %.2fday, Loop %.2fs, GPUs(T/TS/I/IS/S/SS) %d/%d/%d/%d/%d/%d, Finished %d/%d, Train %d, Infer %d  ***"%((clock.get_cur_time()-self.task_list[0]['start_time'])/3600/24,\
+                                                                                                                        end_t-start_t,\
+                                                                                                                        used_gpu_num_train,\
+                                                                                                                        self.no_gpu_train,\
+                                                                                                                        used_gpu_num_infer,\
+                                                                                                                        self.no_gpu_infer,\
+                                                                                                                        self.no_gpu_train+self.no_gpu_infer,\
+                                                                                                                        used_gpu_num,\
+                                                                                                                        finished_jobs,\
+                                                                                                                        self.no_jobs,\
+                                                                                                                        sum_train,\
+                                                                                                                        sum_infer))
                 
             if(finished_jobs==self.no_jobs):
                 scheduled_flag=True

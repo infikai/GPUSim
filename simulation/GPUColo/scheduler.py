@@ -312,7 +312,17 @@ class scheduler:
             self.num_day = self.num_day+1
             self.dump_data(self.num_day)
         if round(clock.get_cur_time(),0) % self.log_rate==0:
-            print("***STime %.2fs, Loop %.2fms, GPUs(T/I/C/A/CA) %d/%d/%d/%d/%d, Finished %d/%d, Train %d, Infer %d***"%(clock.get_cur_time()-self.task_list[0]['start_time'],(end_t-start_t)*1000,used_gpu_train,used_gpu_infer,used_gpu_colo,used_gpu_num,self.no_gpus,finished_jobs,self.no_jobs, sum_train, sum_infer))
+            print("***  STime %.2fday, Loop %.2fms, GPUs(T/I/C/A/CA) %d/%d/%d/%d/%d, Finished %d/%d, Train %d, Infer %d  ***"%((clock.get_cur_time()-self.task_list[0]['start_time'])/3600/24, \
+                                                                                                                        (end_t-start_t)*1000, \
+                                                                                                                        used_gpu_train, \
+                                                                                                                        used_gpu_infer, \
+                                                                                                                        used_gpu_colo, \
+                                                                                                                        used_gpu_num, \
+                                                                                                                        self.no_gpus, \
+                                                                                                                        finished_jobs, \
+                                                                                                                        self.no_jobs, \
+                                                                                                                        sum_train, \
+                                                                                                                        sum_infer))
 
 
 #***************************Original*********************************
@@ -568,7 +578,17 @@ class scheduler:
                 self.num_day = self.num_day+1
                 self.dump_data(self.num_day)
             if round(clock.get_cur_time(),0) % self.log_rate==0:
-                print("***Time %.2fs, Loop %.2fms, GPUs(T/I/C/A/CA) %d/%d/%d/%d/%d, Finished %d/%d, Train %d, Infer %d***"%(clock.get_cur_time()-self.task_list[0]['start_time'],(end_t-start_t)*1000,used_gpu_train,used_gpu_infer,used_gpu_colo,used_gpu_num,self.no_gpus,finished_jobs,self.no_jobs, sum_train, sum_infer))
+                print("***  STime %.2fday, Loop %.2fms, GPUs(T/I/C/A/CA) %d/%d/%d/%d/%d, Finished %d/%d, Train %d, Infer %d  ***"%((clock.get_cur_time()-self.task_list[0]['start_time'])/3600/24, \
+                                                                                                                        (end_t-start_t)*1000, \
+                                                                                                                        used_gpu_train, \
+                                                                                                                        used_gpu_infer, \
+                                                                                                                        used_gpu_colo, \
+                                                                                                                        used_gpu_num, \
+                                                                                                                        self.no_gpus, \
+                                                                                                                        finished_jobs, \
+                                                                                                                        self.no_jobs, \
+                                                                                                                        sum_train, \
+                                                                                                                        sum_infer))
                             # if round(clock.get_cur_time(),1) == 20.0:
                             #     print("\nYes %f"%clock.get_cur_time())
                             # print(f"Remain Jobs {self.no_jobs-i-1} Num of Tasks {task_cnt}")
