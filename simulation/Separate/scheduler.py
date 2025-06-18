@@ -232,8 +232,8 @@ class scheduler:
 
             used_gpu_a = used_gpu_num_train*6
             used_gpu_b = used_gpu_num_infer//5+used_gpu_num_infer
-            # used_gpu_num=max(used_gpu_a,used_gpu_b)
-            used_gpu_num=used_gpu_num_train+used_gpu_num_infer
+            used_gpu_num=max(used_gpu_a, used_gpu_b)
+            # used_gpu_num=used_gpu_num_train+used_gpu_num_infer
             self.used_gpus.append(used_gpu_num)
             self.used_gpus_train.append(used_gpu_num_train)
             self.used_gpus_infer.append(used_gpu_num_infer)
